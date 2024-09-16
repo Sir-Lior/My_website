@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 document.addEventListener('DOMContentLoaded', function() {
         const playButton = document.getElementById('play-video');
-        const video = document.getElementById('intro-video');
+        const video = document.getElementById('play-video');
 
         playButton.addEventListener('click', function() {
             // Play the video
