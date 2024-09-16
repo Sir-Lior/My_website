@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trading Chatbot</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #e9ecef;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        #chat-container {
+            width: 360px;
+            max-width: 100%;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            background: #ffffff;
+            display: flex;
+            flex-direction: column;
+        }
+        #chat-box {
+            flex: 1;
+            padding: 15px;
+            border-bottom: 1px solid #dee2e6;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        #user-input {
+            display: flex;
+            padding: 10px;
+            background: #f8f9fa;
+            border-top: 1px solid #dee2e6;
+            align-items: center;
+        }
+        #user-input input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+        #user-input input:focus {
+            border-color: #007bff;
+        }
+        #user-input button {
+            margin-left: 10px;
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        #user-input button:hover {
+            background-color: #0056b3;
+        }
+        #user-input button:active {
+            transform: scale(0.98);
+        }
+        .message {
+            padding: 10px;
+            border-radius: 8px;
+            max-width: 80%;
+            word-wrap: break-word;
+            font-size: 14px;
+            line-height: 1.5;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            color: #003366; /* Dark blue color for responses */
+        }
+        .user-message {
+            background-color: #d1e7dd;
+            align-self: flex-end;
+        }
+        .bot-message {
+            background-color: #f8d7da;
+            align-self: flex-start;
+        }
+        .message.user-message::before {
+            content: "You: ";
+            font-weight: bold;
+        }
+        .message.bot-message::before {
+            content: "Bot: ";
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="chat-container">
+        <div id="chat-box"></div>
+        <div id="user-input">
+            <input type="text" id="message" placeholder="Ask a trading question...">
+            <button id="send-button">Send</button>
+        </div>
+    </div>
+    <script>// Define your trading-related responses here
+const responses = {
+    "what is a stock": "A stock represents a share in the ownership of a company and constitutes a claim on part of the company’s assets and earnings.",
+    "what is a bond": "A bond is a fixed income instrument that represents a loan made by an investor to a borrower (typically corporate or governmental).",
+    "what is trading": "Trading involves buying and selling financial instruments like stocks, bonds, commodities, and currencies with the goal of making a profit.",
+    "what is forex trading": "Forex trading involves buying and selling currencies with the aim of making a profit from changes in exchange rates.",
+    "how to start trading": "To start trading, you should first educate yourself about the markets, choose a trading platform, open an account, and start with a small investment while practicing trading strategies.",
+    "what is an option": "An option is a financial derivative that gives the holder the right, but not the obligation, to buy or sell an asset at a specified price before a certain date.",
+    "what is a future": "A future is a standardized contract to buy or sell an asset at a predetermined price at a specified time in the future.",
+    "what is day trading": "Day trading involves buying and selling financial instruments within the same trading day, often multiple times throughout the day.",
+    "what is swing trading": "Swing trading is a style of trading that aims to capture short- to medium-term gains in a stock or other financial instruments over a period of days to weeks.",
+    "how to analyze stocks": "Stock analysis involves evaluating a company’s financials, industry position, and market conditions to make informed investment decisions. Common methods include fundamental analysis and technical analysis.",
+    "default": "Sorry, I don't have an answer for that. Can you ask something else related to trading?"
+};
+
+// Function to add a message to the chat
+function addMessage(content, type) {
+    const chatBox = document.getElementById('chat-box');
+    const messageDiv = document.createElement('div');
+    messageDiv.className = 'message ' + type;
+    messageDiv.textContent = content;
+    chatBox.appendChild(messageDiv);
+    chatBox.scrollTop = chatBox.scrollHeight; // Scroll to bottom
+}
+
+// Function to handle sending a message
+function sendMessage() {
+    const inputField = document.getElementById('message');
+    const userMessage = inputField.value.trim().toLowerCase().replace(/\?$/, ''); // Remove trailing question mark
+    
+    if (userMessage === '') return; // Prevent sending empty messages
+
+    addMessage(userMessage, 'user-message');
+    inputField.value = ''; // Clear input field
+
+    // Get the bot response
+    const botResponse = getBotResponse(userMessage);
+    addMessage(botResponse, 'bot-message');
+}
+
+// Function to get the bot's response
+function getBotResponse(userMessage) {
+    return responses[userMessage] || responses["default"];
+}
+
+// Attach event listener to the send button
+document.getElementById('send-button').addEventListener('click', sendMessage);
+
+// Optional: Allow pressing Enter to send message
+document.getElementById('message').addEventListener('keypress', function(event) {
+    if (event.key === 'Enter') {
+        event.preventDefault(); // Prevent default form submission
+        sendMessage();
+    }
+});
+  </script>
+
+</body>
+</html>
