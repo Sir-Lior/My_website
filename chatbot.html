@@ -32,6 +32,7 @@
             display: flex;
             flex-direction: column;
             gap: 10px;
+            aria-live: polite; /* For accessibility */
         }
         #user-input {
             display: flex;
@@ -105,64 +106,62 @@
             <button id="send-button">Send</button>
         </div>
     </div>
-    <script>// Define your trading-related responses here
-// Define your trading-related responses here
-const responses = {
-    "what is a stock": "A stock represents a share in the ownership of a company and constitutes a claim on part of the company’s assets and earnings.",
-    "what is a bond": "A bond is a fixed income instrument that represents a loan made by an investor to a borrower (typically corporate or governmental).",
-    "what is trading": "Trading involves buying and selling financial instruments like stocks, bonds, commodities, and currencies with the goal of making a profit.",
-    "what is forex trading": "Forex trading involves buying and selling currencies with the aim of making a profit from changes in exchange rates.",
-    "how to start trading": "To start trading, you should first educate yourself about the markets, choose a trading platform, open an account, and start with a small investment while practicing trading strategies.",
-    "what is an option": "An option is a financial derivative that gives the holder the right, but not the obligation, to buy or sell an asset at a specified price before a certain date.",
-    "what is a future": "A future is a standardized contract to buy or sell an asset at a predetermined price at a specified time in the future.",
-    "what is day trading": "Day trading involves buying and selling financial instruments within the same trading day, often multiple times throughout the day.",
-    "what is swing trading": "Swing trading is a style of trading that aims to capture short- to medium-term gains in a stock or other financial instruments over a period of days to weeks.",
-    "how to analyze stocks": "Stock analysis involves evaluating a company’s financials, industry position, and market conditions to make informed investment decisions. Common methods include fundamental analysis and technical analysis.",
-    "default": "Sorry, I don't have an answer for that. Can you ask something else related to trading?"
-};
+    <script>
+        // Define your trading-related responses here
+        const responses = {
+            "what is a stock": "A stock represents a share in the ownership of a company and constitutes a claim on part of the company’s assets and earnings.",
+            "what is a bond": "A bond is a fixed income instrument that represents a loan made by an investor to a borrower (typically corporate or governmental).",
+            "what is trading": "Trading involves buying and selling financial instruments like stocks, bonds, commodities, and currencies with the goal of making a profit.",
+            "what is forex trading": "Forex trading involves buying and selling currencies with the aim of making a profit from changes in exchange rates.",
+            "how to start trading": "To start trading, you should first educate yourself about the markets, choose a trading platform, open an account, and start with a small investment while practicing trading strategies.",
+            "what is an option": "An option is a financial derivative that gives the holder the right, but not the obligation, to buy or sell an asset at a specified price before a certain date.",
+            "what is a future": "A future is a standardized contract to buy or sell an asset at a predetermined price at a specified time in the future.",
+            "what is day trading": "Day trading involves buying and selling financial instruments within the same trading day, often multiple times throughout the day.",
+            "what is swing trading": "Swing trading is a style of trading that aims to capture short- to medium-term gains in a stock or other financial instruments over a period of days to weeks.",
+            "how to analyze stocks": "Stock analysis involves evaluating a company’s financials, industry position, and market conditions to make informed investment decisions. Common methods include fundamental analysis and technical analysis.",
+            "default": "Sorry, I don't have an answer for that. Can you ask something else related to trading?"
+        };
 
-// Function to add a message to the chat
-function addMessage(content, type) {
-    const chatBox = document.getElementById('chat-box'); // Corrected the ID here
-    const messageDiv = document.createElement('div');
-    messageDiv.className = 'message ' + type;
-    messageDiv.textContent = content;
-    chatBox.appendChild(messageDiv);
-    chatBox.scrollTop = chatBox.scrollHeight; // Scroll to bottom
-}
+        // Function to add a message to the chat
+        function addMessage(content, type) {
+            const chatBox = document.getElementById('chat-box');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'message ' + type;
+            messageDiv.textContent = content;
+            chatBox.appendChild(messageDiv);
+            chatBox.scrollTop = chatBox.scrollHeight; // Scroll to bottom
+        }
 
-// Function to handle sending a message
-function sendMessage() {
-    const inputField = document.getElementById('message');
-    const userMessage = inputField.value.trim().toLowerCase().replace(/\?$/, ''); // Remove trailing question mark
-    
-    if (userMessage === '') return; // Prevent sending empty messages
+        // Function to handle sending a message
+        function sendMessage() {
+            const inputField = document.getElementById('message');
+            const userMessage = inputField.value.trim().toLowerCase().replace(/\?$/, ''); // Remove trailing question mark
 
-    addMessage(userMessage, 'user-message');
-    inputField.value = ''; // Clear input field
+            if (userMessage === '') return; // Prevent sending empty messages
 
-    // Get the bot response
-    const botResponse = getBotResponse(userMessage);
-    addMessage(botResponse, 'bot-message');
-}
+            addMessage(userMessage, 'user-message');
+            inputField.value = ''; // Clear input field
 
-// Function to get the bot's response
-function getBotResponse(userMessage) {
-    return responses[userMessage] || responses["default"];
-}
+            // Get the bot response
+            const botResponse = getBotResponse(userMessage);
+            addMessage(botResponse, 'bot-message');
+        }
 
-// Attach event listener to the send button
-document.getElementById('send-button').addEventListener('click', sendMessage);
+        // Function to get the bot's response
+        function getBotResponse(userMessage) {
+            return responses[userMessage] || responses["default"];
+        }
 
-// Optional: Allow pressing Enter to send message
-document.getElementById('message').addEventListener('keypress', function(event) {
-    if (event.key === 'Enter') {
-        event.preventDefault(); // Prevent default form submission
-        sendMessage();
-    }
-});
+        // Attach event listener to the send button
+        document.getElementById('send-button').addEventListener('click', sendMessage);
 
-  </script>
-
+        // Optional: Allow pressing Enter to send message
+        document.getElementById('message').addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                event.preventDefault(); // Prevent default form submission
+                sendMessage();
+            }
+        });
+    </script>
 </body>
 </html>
