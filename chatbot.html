@@ -106,6 +106,7 @@
         </div>
     </div>
     <script>// Define your trading-related responses here
+// Define your trading-related responses here
 const responses = {
     "what is a stock": "A stock represents a share in the ownership of a company and constitutes a claim on part of the company’s assets and earnings.",
     "what is a bond": "A bond is a fixed income instrument that represents a loan made by an investor to a borrower (typically corporate or governmental).",
@@ -122,7 +123,7 @@ const responses = {
 
 // Function to add a message to the chat
 function addMessage(content, type) {
-    const chatBox = document.getElementById('chatbot.html');
+    const chatBox = document.getElementById('chat-box'); // Corrected the ID here
     const messageDiv = document.createElement('div');
     messageDiv.className = 'message ' + type;
     messageDiv.textContent = content;
@@ -160,6 +161,7 @@ document.getElementById('message').addEventListener('keypress', function(event) 
         sendMessage();
     }
 });
+
   </script>
 
 </body>
