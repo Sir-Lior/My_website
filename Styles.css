@@ -530,6 +530,93 @@ nav ul {
 }
 
 
+/* CSS Variables for Dark Blue Theme */
+:root {
+    --color-primary: #003366; /* Dark blue for primary elements */
+    --color-primary-light: #004080; /* Slightly lighter blue for borders and hover states */
+    --color-background: #f9f9f9; /* Very light grey background for sections */
+    --color-text: #003366; /* Dark blue for text */
+    --color-text-light: #00509e; /* Slightly lighter dark blue for secondary text */
+    --color-border: #ddd; /* Light grey for borders */
+}
+
+/* Services Section */
+.services {
+    padding: 50px 0;
+    background-color: #ffffff; /* Clean white for background */
+}
+
+.services h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: var(--color-primary); /* Dark blue for headings */
+    text-align: center; /* Center align heading */
+}
+
+.service-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.service-item {
+    background: #ffffff; /* White background for items */
+    border: 1px solid var(--color-border); /* Light grey border */
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    flex: 1;
+    max-width: 23%; /* Adjust to fit in row */
+    box-sizing: border-box;
+    transition: box-shadow 0.3s, transform 0.3s; /* Smooth transitions for hover effects */
+}
+
+.service-item:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow on hover */
+    transform: translateY(-5px); /* Lift effect on hover */
+}
+
+.service-item h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: var(--color-primary); /* Dark blue for subheadings */
+}
+
+.specialists {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.specialist img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.service-icon {
+    width: 50px;
+    color: var(--color-primary); /* Dark blue for icons */
+}
+
+/* Chatbot Section */
+.chatbot button {
+    background-color: var(--color-primary);
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s, box-shadow 0.3s; /* Smooth transitions for hover effects */
+}
+
+.chatbot button:hover {
+    background: var(--color-primary-light); /* Slightly lighter blue for hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow on hover */
+}
+
 /* Trading Options Section */
 .trading-types {
     padding: 50px 0;
@@ -576,65 +663,144 @@ nav ul {
 .trading-box h3 {
     font-size: 1.25rem;
     margin-bottom: 10px;
-    color: var(--color-primary); /* Dark blue for subheadings */
-}
-/* Trading Options Section */
-.trading-types {
-    padding: 50px 0;
-    background-color: #f1f1f1; /* Light gray background for contrast */
+    color: var(--color-primary); /* Dark blue for subheadings inside trading boxes */
 }
 
-.trading-types h2 {
-    font-size: 2.5rem;
-    margin-bottom: 30px;
-    color: #00274d; /* Very dark blue for section heading */
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* Subtle shadow for better legibility */
-}
-
-.trading-boxes {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: space-between;
-}
-
-.trading-box {
-    background: #ffffff; /* White background for trading boxes */
-    border: 1px solid #dddddd; /* Light gray border for subtle definition */
-    border-radius: 8px;
-    padding: 20px;
-    text-align: center;
-    flex: 1;
-    max-width: calc(33.333% - 20px); /* Adjust to fit in row with gap */
-    box-sizing: border-box;
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition effects */
-}
-
-.trading-box:hover {
-    transform: translateY(-10px); /* Slight lift effect on hover */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add shadow on hover */
-}
-
-.trading-box img {
-    width: 100%;
-    border-radius: 8px;
-    margin-bottom: 10px;
-    border: 2px solid #003366; /* Dark blue border around images */
-}
-
-.trading-box h3 {
-    font-size: 1.5rem; /* Slightly larger for better emphasis */
-    margin-bottom: 10px;
-    color: #003366; /* Dark blue for subheadings inside trading boxes */
-    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2); /* Subtle shadow for better readability */
-}
-
+/* New Addition for Trading Options Section */
 .trading-box p {
     font-size: 1rem;
     line-height: 1.6; /* Increased line-height for better readability */
     color: #004080; /* Medium dark blue for paragraph text */
     margin-top: 0; /* Remove default margin-top for cleaner alignment */
 }
+
+/* Media Queries */
+
+/* Small Screens (Mobile) */
+@media (max-width: 768px) {
+    .services {
+        padding: 30px 0;
+    }
+    
+    .services h2 {
+        font-size: 2rem; /* Slightly smaller font size for smaller screens */
+        margin-bottom: 20px;
+    }
+    
+    .service-items {
+        flex-direction: column; /* Stack items vertically on small screens */
+        align-items: center; /* Center align items */
+    }
+    
+    .service-item {
+        max-width: 90%; /* Full width with some margin */
+        margin: 0 auto; /* Center align items */
+    }
+    
+    .service-item h3 {
+        font-size: 1.25rem; /* Slightly smaller font size for smaller screens */
+    }
+    
+    .specialists {
+        flex-direction: column; /* Stack specialist images vertically */
+        align-items: center; /* Center align images */
+    }
+    
+    .specialist img {
+        width: 80px; /* Smaller image size for smaller screens */
+        height: 80px;
+    }
+    
+    .service-icon {
+        width: 40px; /* Smaller icon size for smaller screens */
+    }
+    
+    .chatbot button {
+        padding: 0.4rem 0.8rem; /* Adjust padding for smaller screens */
+        font-size: 0.875rem; /* Smaller font size for the button */
+    }
+
+    .trading-types {
+        padding: 30px 0; /* Reduce padding for smaller screens */
+    }
+
+    .trading-types h2 {
+        font-size: 2rem; /* Adjust font size for smaller screens */
+        margin-bottom: 20px;
+    }
+
+    .trading-boxes {
+        flex-direction: column; /* Stack boxes vertically */
+        align-items: center; /* Center align trading boxes */
+    }
+
+    .trading-box {
+        max-width: 90%; /* Full width with some margin */
+        margin: 0 auto; /* Center align boxes */
+    }
+
+    .trading-box h3 {
+        font-size: 1.25rem; /* Slightly smaller font size for smaller screens */
+    }
+
+    .trading-box img {
+        width: 80%; /* Adjust image size for smaller screens */
+    }
+
+    .trading-box p {
+        font-size: 0.875rem; /* Smaller font size for paragraphs */
+    }
+}
+
+/* Large Screens (Desktops) */
+@media (min-width: 1200px) {
+    .service-item {
+        max-width: 22%; /* Adjust width for large screens to fit more items per row */
+    }
+    
+    .services h2 {
+        font-size: 3rem; /* Larger font size for larger screens */
+    }
+    
+    .service-item h3 {
+        font-size: 1.75rem; /* Larger font size for larger screens */
+    }
+    
+    .specialist img {
+        width: 120px; /* Larger image size for larger screens */
+        height: 120px;
+    }
+    
+    .service-icon {
+        width: 60px; /* Larger icon size for larger screens */
+    }
+    
+    .chatbot button {
+        padding: 0.6rem 1.2rem; /* Larger padding for larger screens */
+        font-size: 1rem; /* Larger font size for the button */
+    }
+
+    .trading-box {
+        max-width: 22%; /* Adjust width for large screens to fit more boxes per row */
+    }
+
+    .trading-types h2 {
+        font-size: 3rem; /* Larger font size for larger screens */
+    }
+
+    .trading-box h3 {
+        font-size: 1.5rem; /* Larger font size for headings inside boxes */
+    }
+
+    .trading-box img {
+        width: 100%; /* Full width images on larger screens */
+    }
+
+    .trading-box p {
+        font-size: 1rem; /* Standard font size for paragraphs */
+    }
+}
+
 /* Best Traders Section */
 /* Basic reset for margin and padding */
 * {
