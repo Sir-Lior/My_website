@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trader Profiles</title>
+    <style>body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    background-color: #003366; /* Dark blue */
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.profiles-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.profile-card {
+    background-color: #fff;
+    border-radius: 8px;
+    border: 1px solid #003366; /* Dark blue border */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+.profile-picture {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    margin-right: 20px;
+}
+
+.profile-info {
+    flex: 1;
+}
+
+.trader-name {
+    margin: 0;
+    color: #003366; /* Dark blue text */
+}
+
+.trader-type {
+    font-style: italic;
+    color: #555;
+}
+
+.profile-details {
+    padding: 20px;
+}
+
+.profile-details ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.profile-details li {
+    margin-bottom: 10px;
+}
+
+.profile-details strong {
+    display: inline-block;
+    width: 200px;
+    color: #003366; /* Dark blue text */
+    font-weight: bold;
+}
+
+.consult-button {
+    background-color: #003366; /* Dark blue */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+.consult-button:hover {
+    background-color: #002244; /* Darker shade of blue */
+}
+/* General Styles for Mobile Devices */
+@media (max-width: 600px) {
+    .profile-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .profile-picture {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 10px;
+    }
+
+    .profile-info {
+        text-align: left;
+    }
+
+    .profile-details strong {
+        width: auto; /* Adjust width for smaller screens */
+    }
+
+    .consult-button {
+        width: 100%;
+        padding: 12px;
+    }
+}
+
+/* For Tablets and Smaller Laptops */
+@media (max-width: 900px) {
+    .profiles-container {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    .profile-card {
+        margin-top: 10px;
+    }
+
+    .profile-header {
+        padding: 15px;
+    }
+}
+  </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Trader Profiles</h1>
+        </header>
+        <div class="profiles-container">
+            <!-- Trader Profile 1 -->
+            <div class="profile-card">
+                <div class="profile-header">
+                    <img src="profile-picture1.jpg" alt="Trader Profile Picture" class="profile-picture">
+                    <div class="profile-info">
+                        <h2 class="trader-name" id="trader-name-1">John Doe</h2>
+                        <p class="trader-type" id="trader-type-1">Day Trader</p>
+                    </div>
+                </div>
+                <div class="profile-details">
+                    <ul>
+                        <li><strong>Username:</strong> <span id="username-1">johndoe123</span></li>
+                        <li><strong>Email:</strong> <span id="email-1">johndoe@example.com</span></li>
+                        <li><strong>Location:</strong> <span id="location-1">New York, USA</span></li>
+                        <li><strong>Experience Level:</strong> <span id="experience-1">5 years</span></li>
+                        <li><strong>Trading Style:</strong> <span id="trading-style-1">Scalping, Swing Trading</span></li>
+                    </ul>
+                    <button class="consult-button" id="consult-button-1">Consult Now</button>
+                </div>
+            </div>
+
+            <!-- Trader Profile 2 -->
+            <div class="profile-card">
+                <div class="profile-header">
+                    <img src="profile-picture2.jpg" alt="Trader Profile Picture" class="profile-picture">
+                    <div class="profile-info">
+                        <h2 class="trader-name" id="trader-name-2">Jane Smith</h2>
+                        <p class="trader-type" id="trader-type-2">Swing Trader</p>
+                    </div>
+                </div>
+                <div class="profile-details">
+                    <ul>
+                        <li><strong>Username:</strong> <span id="username-2">janesmith456</span></li>
+                        <li><strong>Email:</strong> <span id="email-2">janesmith@example.com</span></li>
+                        <li><strong>Location:</strong> <span id="location-2">San Francisco, USA</span></li>
+                        <li><strong>Experience Level:</strong> <span id="experience-2">8 years</span></li>
+                        <li><strong>Trading Style:</strong> <span id="trading-style-2">Trend Following, Position Trading</span></li>
+                    </ul>
+                    <button class="consult-button" id="consult-button-2">Consult Now</button>
+                </div>
+            </div>
+
+            <!-- Trader Profile 3 -->
+            <div class="profile-card">
+                <div class="profile-header">
+                    <img src="profile-picture3.jpg" alt="Trader Profile Picture" class="profile-picture">
+                    <div class="profile-info">
+                        <h2 class="trader-name" id="trader-name-3">Emily Johnson</h2>
+                        <p class="trader-type" id="trader-type-3">Options Trader</p>
+                    </div>
+                </div>
+                <div class="profile-details">
+                    <ul>
+                        <li><strong>Username:</strong> <span id="username-3">emilyjohnson789</span></li>
+                        <li><strong>Email:</strong> <span id="email-3">emilyjohnson@example.com</span></li>
+                        <li><strong>Location:</strong> <span id="location-3">Chicago, USA</span></li>
+                        <li><strong>Experience Level:</strong> <span id="experience-3">6 years</span></li>
+                        <li><strong>Trading Style:</strong> <span id="trading-style-3">Options Strategies, Hedging</span></li>
+                    </ul>
+                    <button class="consult-button" id="consult-button-3">Consult Now</button>
+                </div>
+            </div>
+
+            <!-- Trader Profile 4 -->
+            <div class="profile-card">
+                <div class="profile-header">
+                    <img src="profile-picture4.jpg" alt="Trader Profile Picture" class="profile-picture">
+                    <div class="profile-info">
+                        <h2 class="trader-name" id="trader-name-4">Michael Brown</h2>
+                        <p class="trader-type" id="trader-type-4">Forex Trader</p>
+                    </div>
+                </div>
+                <div class="profile-details">
+                    <ul>
+                        <li><strong>Username:</strong> <span id="username-4">michaelbrown321</span></li>
+                        <li><strong>Email:</strong> <span id="email-4">michaelbrown@example.com</span></li>
+                        <li><strong>Location:</strong> <span id="location-4">London, UK</span></li>
+                        <li><strong>Experience Level:</strong> <span id="experience-4">7 years</span></li>
+                        <li><strong>Trading Style:</strong> <span id="trading-style-4">Technical Analysis, Currency Pairs</span></li>
+                    </ul>
+                    <button class="consult-button" id="consult-button-4">Consult Now</button>
+                </div>
+            </div>
+
+            <!-- Trader Profile 5 -->
+            <div class="profile-card">
+                <div class="profile-header">
+                    <img src="profile-picture5.jpg" alt="Trader Profile Picture" class="profile-picture">
+                    <div class="profile-info">
+                        <h2 class="trader-name" id="trader-name-5">Sarah Davis</h2>
+                        <p class="trader-type" id="trader-type-5">Long-Term Investor</p>
+                    </div>
+                </div>
+                <div class="profile-details">
+                    <ul>
+                        <li><strong>Username:</strong> <span id="username-5">sarahdavis654</span></li>
+                        <li><strong>Email:</strong> <span id="email-5">sarahdavis@example.com</span></li>
+                        <li><strong>Location:</strong> <span id="location-5">Sydney, Australia</span></li>
+                        <li><strong>Experience Level:</strong> <span id="experience-5">10 years</span></li>
+                        <li><strong>Trading Style:</strong> <span id="trading-style-5">Value Investing, Dividend Stocks</span></li>
+                    </ul>
+                    <button class="consult-button" id="consult-button-5">Consult Now</button>
+                </div>
+            </div>
+
+            <!-- Trader Profile 6 -->
+            <div class="profile-card">
+                <div class="profile-header">
+                    <img src="profile-picture6.jpg" alt="Trader Profile Picture" class="profile-picture">
+                    <div class="profile-info">
+                        <h2 class="trader-name" id="trader-name-6">David Wilson</h2>
+                        <p class="trader-type" id="trader-type-6">Algorithmic Trader</p>
+                    </div>
+                </div>
+                <div class="profile-details">
+                    <ul>
+                        <li><strong>Username:</strong> <span id="username-6">davidwilson987</span></li>
+                        <li><strong>Email:</strong> <span id="email-6">davidwilson@example.com</span></li>
+                        <li><strong>Location:</strong> <span id="location-6">Toronto, Canada</span></li>
+                        <li><strong>Experience Level:</strong> <span id="experience-6">4 years</span></li>
+                        <li><strong>Trading Style:</strong> <span id="trading-style-6">Quantitative Analysis, High-Frequency Trading</span></li>
+                    </ul>
+                    <button class="consult-button" id="consult-button-6">Consult Now</button>
+                </div>
+            </div>
+
+            <!-- Trader Profile 7 -->
+            <div class="profile-card">
+                <div class="profile-header">
+                    <img src="profile-picture7.jpg" alt="Trader Profile Picture" class="profile-picture">
+                    <div class="profile-info">
+                        <h2 class="trader-name" id="trader-name-7">Laura Martinez</h2>
+                        <p class="trader-type" id="trader-type-7">Commodity Trader</p>
+                    </div>
+                </div>
+                <div class="profile-details">
+                    <ul>
+                        <li><strong>Username:</strong> <span id="username-7">lauramartinez852</span></li>
+                        <li><strong>Email:</strong> <span id="email-7">lauramartinez@example.com</span></li>
+                        <li><strong>Location:</strong> <span id="location-7">Dubai, UAE</span></li>
+                        <li><strong>Experience Level:</strong> <span id="experience-7">9 years</span></li>
+                        <li><strong>Trading Style:</strong> <span id="trading-style-7">Futures, Hedging</span></li>
+                    </ul>
+                    <button class="consult-button" id="consult-button-7">Consult Now</button>
+                </div>
+            </div>
+
+            <!-- Trader Profile 8 -->
+            <div class="profile-card">
+                <div class="profile-header">
+                    <img src="profile-picture8.jpg" alt="Trader Profile Picture" class="profile-picture">
+                    <div class="profile-info">
+                        <h2 class="trader-name" id="trader-name-8">Chris Thompson</h2>
+                        <p class="trader-type" id="trader-type-8">Crypto Trader</p>
+                    </div>
+                </div>
+                <div class="profile-details">
+                    <ul>
+                        <li><strong>Username:</strong> <span id="username-8">christhompson741</span></li>
+                        <li><strong>Email:</strong> <span id="email-8">christhompson@example.com</span></li>
+                        <li><strong>Location:</strong> <span id="location-8">Berlin, Germany</span></li>
+                        <li><strong>Experience Level:</strong> <span id="experience-8">3 years</span></li>
+                        <li><strong>Trading Style:</strong> <span id="trading-style-8">Altcoins, ICOs</span></li>
+                    </ul>
+                    <button class="consult-button" id="consult-button-8">Consult Now</button>
+                </div>
+            </div>
+
+            <!-- Trader Profile 9 -->
+            <div class="profile-card">
+                <div class="profile-header">
+                    <img src="profile-picture9.jpg" alt="Trader Profile Picture" class="profile-picture">
+                    <div class="profile-info">
+                        <h2 class="trader-name" id="trader-name-9">Olivia Lee</h2>
+                        <p class="trader-type" id="trader-type-9">Quantitative Analyst</p>
+                    </div>
+                </div>
+                <div class="profile-details">
+                    <ul>
+                        <li><strong>Username:</strong> <span id="username-9">olivialee123</span></li>
+                        <li><strong>Email:</strong> <span id="email-9">olivialee@example.com</span></li>
+                        <li><strong>Location:</strong> <span id="location-9">Singapore</span></li>
+                        <li><strong>Experience Level:</strong> <span id="experience-9">5 years</span></li>
+                        <li><strong>Trading Style:</strong> <span id="trading-style-9">Algorithmic, Statistical Arbitrage</span></li>
+                    </ul>
+                    <button class="consult-button" id="consult-button-9">Consult Now</button>
+                </div>
+            </div>
+
+            <!-- Trader Profile 10 -->
+            <div class="profile-card">
+                <div class="profile-header">
+                    <img src="profile-picture10.jpg" alt="Trader Profile Picture" class="profile-picture">
+                    <div class="profile-info">
+                        <h2 class="trader-name" id="trader-name-10">Ethan Harris</h2>
+                        <p class="trader-type" id="trader-type-10">Market Analyst</p>
+                    </div>
+                </div>
+                <div class="profile-details">
+                    <ul>
+                        <li><strong>Username:</strong> <span id="username-10">ethanharris456</span></li>
+                        <li><strong>Email:</strong> <span id="email-10">ethanharris@example.com</span></li>
+                        <li><strong>Location:</strong> <span id="location-10">Paris, France</span></li>
+                        <li><strong>Experience Level:</strong> <span id="experience-10">12 years</span></li>
+                        <li><strong>Trading Style:</strong> <span id="trading-style-10">Fundamental Analysis, Economic Indicators</span></li>
+                    </ul>
+                    <button class="consult-button" id="consult-button-10">Consult Now</button>
+                </div>
+            </div>
+
+            <!-- Trader Profile 11 -->
+            <div class="profile-card">
+                <div class="profile-header">
+                    <img src="profile-picture11.jpg" alt="Trader Profile Picture" class="profile-picture">
+                    <div class="profile-info">
+                        <h2 class="trader-name" id="trader-name-11">Sophia Walker</h2>
+                        <p class="trader-type" id="trader-type-11">Real Estate Investor</p>
+                    </div>
+                </div>
+                <div class="profile-details">
+                    <ul>
+                        <li><strong>Username:</strong> <span id="username-11">sophiawalker789</span></li>
+                        <li><strong>Email:</strong> <span id="email-11">sophiawalker@example.com</span></li>
+                        <li><strong>Location:</strong> <span id="location-11">Los Angeles, USA</span></li>
+                        <li><strong>Experience Level:</strong> <span id="experience-11">15 years</span></li>
+                        <li><strong>Trading Style:</strong> <span id="trading-style-11">Property Flipping, Buy and Hold</span></li>
+                    </ul>
+                    <button class="consult-button" id="consult-button-11">Consult Now</button>
+                </div>
+            </div>
+
+            <!-- Trader Profile 12 -->
+            <div class="profile-card">
+                <div class="profile-header">
+                    <img src="profile-picture12.jpg" alt="Trader Profile Picture" class="profile-picture">
+                    <div class="profile-info">
+                        <h2 class="trader-name" id="trader-name-12">Jackson Adams</h2>
+                        <p class="trader-type" id="trader-type-12">Tech Stock Investor</p>
+                    </div>
+                </div>
+                <div class="profile-details">
+                    <ul>
+                        <li><strong>Username:</strong> <span id="username-12">jacksonadams123</span></li>
+                        <li><strong>Email:</strong> <span id="email-12">jacksonadams@example.com</span></li>
+                        <li><strong>Location:</strong> <span id="location-12">Silicon Valley, USA</span></li>
+                        <li><strong>Experience Level:</strong> <span id="experience-12">7 years</span></li>
+                        <li><strong>Trading Style:</strong> <span id="trading-style-12">Growth Stocks, Tech Sector</span></li>
+                    </ul>
+                    <button class="consult-button" id="consult-button-12">Consult Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>document.addEventListener('DOMContentLoaded', () => {
+    // Add event listeners to all "Consult Now" buttons
+    document.querySelectorAll('.consult-button').forEach(button => {
+        button.addEventListener('click', () => {
+            // This is where you handle the button click
+            // For now, it just logs a message to the console
+            console.log('Consult Now button clicked!');
+            // Example: window.location.href = 'mailto:support@example.com';
+        });
+    });
+});
+document.addEventListener('DOMContentLoaded', () => {
+    const handleResize = () => {
+        if (window.matchMedia('(max-width: 600px)').matches) {
+            // Adjust functionality or styles for small screens
+            console.log('Small screen detected');
+        } else {
+            // Adjust functionality or styles for larger screens
+            console.log('Larger screen detected');
+        }
+    };
+
+    // Initial check
+    handleResize();
+
+    // Add event listener for resize
+    window.addEventListener('resize', handleResize);
+});
+</script>
+</body>
+</html>
