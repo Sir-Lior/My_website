@@ -44,19 +44,23 @@
     }
 });
 document.addEventListener('DOMContentLoaded', () => {
+    // Navigation Toggle
     const navToggle = document.querySelector('.nav-toggle');
     const navMenu = document.querySelector('nav ul');
 
-    navToggle.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
-    });
-});
-document.addEventListener('DOMContentLoaded', function() {
-        const playButton = document.getElementById('play-video');
-        const video = document.getElementById('play-video');
+    if (navToggle && navMenu) {
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+    }
 
-        playButton.addEventListener('click', function() {
-            // Play the video
+    // Play Video Button
+    const playButton = document.getElementById('play-video');
+    const video = document.getElementById('video-element'); // Assuming the video element has this ID
+
+    if (playButton && video) {
+        playButton.addEventListener('click', () => {
             video.play();
         });
-    });
+    }
+});
