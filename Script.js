@@ -64,3 +64,33 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+// Define the stats data
+const statsData = [
+  { id: 'match-success-rate', value: 95, suffix: '%' },
+  { id: 'clients-attended', value: 15000, suffix: '+' },
+  { id: 'verified-reviews', value: 30000, suffix: '+' },
+  { id: 'satisfaction-guaranteed', value: 100, suffix: '%' }
+];
+
+// Animate the counters
+const animationDuration = 3600; // 3.6 seconds for a better visual effect
+function animateCounter(element, targetValue, stat) {
+  let currentValue = 0;
+  const increment = Math.ceil(targetValue / animationDuration * 10);
+  const interval = setInterval(() => {
+    currentValue += increment;
+    element.textContent = `${currentValue.toLocaleString()}${stat.suffix}`;
+    if (currentValue >= targetValue) {
+      clearInterval(interval);
+      element.textContent = `${targetValue.toLocaleString()}${stat.suffix}`;
+    }
+  }, 10);
+}
+
+// Animate each stat
+statsData.forEach(stat => {
+  const element = document.getElementById(stat.id);
+  if (element) {
+    animateCounter(element, stat.value, stat);
+  }
+});
