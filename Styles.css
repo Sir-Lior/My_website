@@ -366,7 +366,6 @@ nav ul {
         font-size: 1rem; /* Smaller font size for paragraphs */
     }
 }
-
 /* CSS Variables for Dark Blue Theme */
 :root {
     --color-primary: #003366; /* Dark blue for primary elements */
@@ -451,8 +450,85 @@ nav ul {
 
 .chatbot button:hover {
     background: var(--color-primary-light); /* Slightly lighter blue for hover */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow on hover */
 }
+
+/* Media Queries */
+
+/* Small Screens (Mobile) */
+@media (max-width: 768px) {
+    .services {
+        padding: 30px 0;
+    }
+    
+    .services h2 {
+        font-size: 2rem; /* Slightly smaller font size for smaller screens */
+        margin-bottom: 20px;
+    }
+    
+    .service-items {
+        flex-direction: column; /* Stack items vertically on small screens */
+        align-items: center; /* Center align items */
+    }
+    
+    .service-item {
+        max-width: 90%; /* Full width with some margin */
+        margin: 0 auto; /* Center align items */
+    }
+    
+    .service-item h3 {
+        font-size: 1.25rem; /* Slightly smaller font size for smaller screens */
+    }
+    
+    .specialists {
+        flex-direction: column; /* Stack specialist images vertically */
+        align-items: center; /* Center align images */
+    }
+    
+    .specialist img {
+        width: 80px; /* Smaller image size for smaller screens */
+        height: 80px;
+    }
+    
+    .service-icon {
+        width: 40px; /* Smaller icon size for smaller screens */
+    }
+    
+    .chatbot button {
+        padding: 0.4rem 0.8rem; /* Adjust padding for smaller screens */
+        font-size: 0.875rem; /* Smaller font size for the button */
+    }
+}
+
+/* Large Screens (Desktops) */
+@media (min-width: 1200px) {
+    .service-item {
+        max-width: 22%; /* Adjust width for large screens to fit more items per row */
+    }
+    
+    .services h2 {
+        font-size: 3rem; /* Larger font size for larger screens */
+    }
+    
+    .service-item h3 {
+        font-size: 1.75rem; /* Larger font size for larger screens */
+    }
+    
+    .specialist img {
+        width: 120px; /* Larger image size for larger screens */
+        height: 120px;
+    }
+    
+    .service-icon {
+        width: 60px; /* Larger icon size for larger screens */
+    }
+    
+    .chatbot button {
+        padding: 0.6rem 1.2rem; /* Larger padding for larger screens */
+        font-size: 1rem; /* Larger font size for the button */
+    }
+}
+
 
 /* Trading Options Section */
 .trading-types {
