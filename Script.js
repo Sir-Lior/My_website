@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Play Video Button
     const playButton = document.getElementById('play-video');
-    const video = document.getElementById('video-content'); 
+    const video = document.getElementById('video-element'); 
 
     if (playButton && video) {
         playButton.addEventListener('click', () => {
